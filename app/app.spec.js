@@ -1,18 +1,17 @@
 import { assert, expect } from 'chai'
 import makeVendingMachine from './app'
-import { VALID_COINS } from '../config/valid-coins-config'
+// import { VALID_COINS } from '../config/valid-coins-config'
 
 describe('makeVendingMachine', () => {
-  it('should return an object with vending functions', () => {
-    // let vendingMachine = makeVendingMachine()
-    // assert.isObject(vendingMachine)
-    // assert.isFunction(vendingMachine.acceptCoin)
+  it('should return an object', () => {
+    let vendingMachine = makeVendingMachine()
+    assert.isObject(vendingMachine)
   })
 })
 
-describe('makeVendingMachine.acceptCoin', () => {
-  it('should accept valid coins and return accepted object', () => {
-    // let vendingMachine = makeVendingMachine()
-    // let result = vendingMachine.acceptCoin(VALID_COINS[0])
+describe('acceptCoins', () => {
+  it('should be a function', () => {
+    let vendingMachine = makeVendingMachine()
+    assert.isFunction(vendingMachine.acceptCoins)
   })
 })

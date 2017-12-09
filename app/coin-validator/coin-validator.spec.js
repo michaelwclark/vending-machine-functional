@@ -2,7 +2,7 @@ import { assert, expect } from 'chai'
 import * as coinValidator from './coin-validator'
 
 describe('getEmptyValidationObject', () => {
-  it('should return an object containng a key with an emtpy array value', () => {
+  it('should return an object containing a key with an empty array value', () => {
     let result = coinValidator.getEmptyValidationObject(['a', 'b', 1])
     expect(result).to.have.property('a')
     expect(result).to.have.property('b')
@@ -32,20 +32,20 @@ describe('getValidationObject', () => {
   })
 })
 
-describe('makeCoinValidatonFunction', () => {
+describe('makeCoinValidationFunction', () => {
   let validationObject = {
     a: [1, 2, 3, 4],
     b: [5, 6, 7, 8]
   }
   let validationFields = ['a', 'b']
   it('should return a function', () => {
-    let validator = coinValidator.makeCoinValidatonFunction({})
+    let validator = coinValidator.makeCoinValidationFunction({})
     assert.isFunction(validator)
   })
 
   it('should return true if all coin properties are valid', () => {
     let coin = { a: 1, b: 5 }
-    let validator = coinValidator.makeCoinValidatonFunction({
+    let validator = coinValidator.makeCoinValidationFunction({
       validationObject,
       validationFields
     })
@@ -55,7 +55,7 @@ describe('makeCoinValidatonFunction', () => {
 
   it('should return false if any coin properties are not valid', () => {
     let coin = { a: -1, b: 5 }
-    let validator = coinValidator.makeCoinValidatonFunction({
+    let validator = coinValidator.makeCoinValidationFunction({
       validationObject,
       validationFields
     })
