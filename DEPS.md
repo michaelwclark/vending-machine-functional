@@ -1,0 +1,15 @@
+"express": "^4.16.2",
+"express-request-proxy": "^2.0.0",
+"helmet": "^3.9.0"
+"babel": "^6.23.0",
+"babel-preset-env": "^1.6.1",
+"chai": "^4.1.2",
+"copy-webpack-plugin": "^4.2.3",
+"husky": "^0.14.3",
+"jest": "^21.2.1",
+"prettier-standard": "^7.0.3",
+"sass-loader": "^6.0.6",
+"style-loader": "^0.19.0",
+"url-loader": "^0.6.2",
+"webpack": "^3.8.1",
+"webpack-merge": "^4.1.1"

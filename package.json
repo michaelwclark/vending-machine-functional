@@ -1,0 +1,65 @@
+{
+  "name": "vending-machine-functional",
+  "version": "1.0.0",
+  "description": "Vending machine kata using functional programming",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelwclark/VendingMachineFunctional.git"
+  },
+  "author": "Michael W. Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelwclark/VendingMachineFunctional/issues"
+  },
+  "homepage": "https://github.com/michaelwclark/VendingMachineFunctional#readme",
+  "scripts": {
+    "precommit": "lint-staged",
+    "clean": "rm -rf static/",
+    "build": "webpack --config config/webpack-production-config.js --progress --profile --colors",
+    "dev": "NODE_ENV=development webpack-dev-server --config config/webpack-development-config.js",
+    "start-staging": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.2.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^21.2.1",
+    "lint-staged": "^5.0.0",
+    "node-sass": "^4.6.1",
+    "pre-commit": "^1.2.2",
+    "prettier-standard": "^7.0.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1",
+    "webpack-strip": "^0.1.0"
+  },
+  "dependencies": {
+    "config": "^1.28.1",
+    "express": "^4.16.2",
+    "express-request-proxy": "^2.0.0",
+    "helmet": "^3.9.0",
+    "lodash": "^4.17.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-standard app/**/*.js*",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "precommit"
+  ]
+}
