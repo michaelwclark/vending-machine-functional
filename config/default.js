@@ -7,5 +7,22 @@ module.exports = {
   APP_STATIC_PATH: path.resolve('app', 'static'),
   BUILD_PATH: path.resolve('build'),
   COIN_VALIDATION_FIELDS,
-  VALID_COINS
+  VALID_COINS,
+  INVENTORY: [
+    {
+      name: 'Cola',
+      price: 1,
+      quantity: 48
+    },
+    {
+      name: 'Chips',
+      price: 0.5,
+      quantity: 24
+    },
+    {
+      name: 'Candy',
+      price: 0.65,
+      quantity: 32
+    }
+  ]
 }

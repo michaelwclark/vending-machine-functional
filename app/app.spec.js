@@ -12,6 +12,6 @@ describe('makeVendingMachine', () => {
 describe('acceptCoins', () => {
   it('should be a function', () => {
     let vendingMachine = makeVendingMachine()
-    assert.isFunction(vendingMachine.acceptCoins)
+    assert.isFunction(vendingMachine.acceptCoin)
   })
 })

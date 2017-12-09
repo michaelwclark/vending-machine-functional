@@ -1,3 +1,4 @@
-import makeAcceptCoins from './coin-acceptor'
+import { makeCoinAcceptor } from './coin-acceptor'
+import { makeAddCoinToBank } from '../bank-utils/bank-utils'
 
-export default makeAcceptCoins
+export { makeCoinAcceptor, makeAddCoinToBank }

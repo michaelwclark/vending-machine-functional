@@ -5,9 +5,7 @@
  * @param rejectCoin {Function} - callback to reject coin
  * @returns {Function} - takes array of coins, validates each one, returns object
  */
-const makeCoinAcceptor = (coinValidator, acceptCoin, rejectCoin) => coins =>
-  coins.map(coinValidator).forEach(coin => {
-    coin.isValid ? acceptCoin(coin) : rejectCoin(coin)
-  })
+const makeCoinAcceptor = (coinValidator, acceptCoin, rejectCoin) => coin =>
+  coinValidator(coin) ? acceptCoin(coin) : rejectCoin(coin)
 
-export default makeCoinAcceptor
+export { makeCoinAcceptor }

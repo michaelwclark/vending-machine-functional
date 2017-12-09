@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai'
-import makeCoinAcceptor from './coin-acceptor'
+import { makeCoinAcceptor } from './coin-acceptor'
 
 describe('makeCoinAcceptor', () => {
   it('should return a function', () => {
@@ -10,20 +10,15 @@ describe('makeCoinAcceptor', () => {
   it('acceptCoins should call accept function when validated true', () => {
     let acceptedCalled = false
     let acceptCallback = x => {
-      assert.isTrue(x.isValid)
       acceptedCalled = true
     }
     let rejectCalled = false
     let rejectCallback = x => {
-      assert.isFalse(x.isValid)
       rejectCalled = true
     }
 
     let acceptCoins = makeCoinAcceptor(
-      x => {
-        x['isValid'] = true
-        return x
-      },
+      x => true,
       acceptCallback,
       rejectCallback
     )
@@ -35,20 +30,16 @@ describe('makeCoinAcceptor', () => {
   it('acceptCoins should call reject function when validated false', () => {
     let acceptedCalled = false
     let acceptCallback = x => {
-      assert.isTrue(x.isValid)
       acceptedCalled = true
     }
+
     let rejectCalled = false
     let rejectCallback = x => {
-      assert.isFalse(x.isValid)
       rejectCalled = true
     }
 
     let acceptCoins = makeCoinAcceptor(
-      x => {
-        x['isValid'] = false
-        return x
-      },
+      x => false,
       acceptCallback,
       rejectCallback
     )

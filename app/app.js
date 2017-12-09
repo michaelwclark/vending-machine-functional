@@ -1,4 +1,4 @@
-import makeAcceptCoins from './coin-acceptor'
+import { makeCoinAcceptor, makeAddCoinToBank } from './coin-acceptor'
 import makeCoinValidator from './coin-validator'
 import config from 'config'
 
@@ -11,22 +11,25 @@ const makeVendingMachine = () => {
   })
   const state = {
     coin_bank: {},
+    coin_register: {},
+    coin_return: {},
     inventory: {},
     display: {},
-    buttons: {},
-    coin_return: {}
+    buttons: {}
   }
-  const addCoinToBank = coin => state.coin_bank.push(coin)
-  const sendCoinToReturn = coin => state.coin_return.push(coin)
 
-  return {
-    acceptCoins: makeAcceptCoins(
-      coinValidator,
-      addCoinToBank,
-      sendCoinToReturn
-    ),
+  const addCoinToBank = makeAddCoinToBank(state.coin_bank)
+
+  const sendCoinToReturn = coin => {
+    state.coin_return.push(coin)
+  }
+  const acceptCoin = makeCoinAcceptor(
+    coinValidator,
     addCoinToBank,
-    sendCoinToReturn,
+    sendCoinToReturn
+  )
+  return {
+    acceptCoin,
     state
   }
 }
